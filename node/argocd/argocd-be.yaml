@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: devops-playground-be
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/max-nguyen-3006/devops-playground-deploy.git'
+    targetRevision: HEAD
+    path: be
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

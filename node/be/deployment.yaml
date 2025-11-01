@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-playground-be
+  labels:
+    app: devops-playground-be
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devops-playground-be
+  template:
+    metadata:
+      labels:
+        app: devops-playground-be
+    spec:
+      containers:
+      - name: devops-playground-be
+        image: 300698/github-action
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
