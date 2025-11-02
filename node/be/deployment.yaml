@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: devops-playground-be
-        image: 300698/github-action:main
+        image: 300698/github-action:main-c58ddc260a27bd1d12035ac55b8017645963a0c3
         ports:
         - containerPort: 3000
         resources:
