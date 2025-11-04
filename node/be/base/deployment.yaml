@@ -15,14 +15,28 @@ spec:
         app: devops-playground-be
     spec:
       containers:
-      - name: devops-playground-be
-        image: 300698/github-action:main-5474e23
-        ports:
-        - containerPort: 3000
-        resources:
-          requests:
-            memory: "256Mi"
-            cpu: "100m"
-          limits:
-            memory: "512Mi"
-            cpu: "500m"
+        - name: devops-playground-be
+          image: 300698/github-action:main-5474e23
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          env:
+            - name: NODE_ENV
+              valueFrom:
+                configMapKeyRef:
+                  name: devops-playground-be-config
+                  key: NODE_ENV
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: devops-playground-be-config
+data:
+  NODE_ENV: NODE_ENV-local-ne
