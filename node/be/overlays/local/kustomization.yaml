@@ -6,4 +6,4 @@ kind: Kustomization
 images:
 - name: 300698/github-action
   newName: 300698/github-action
-  newTag: main-0aa15df
+  newTag: main-0ab37ad
