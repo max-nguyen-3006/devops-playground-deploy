@@ -32,6 +32,14 @@ spec:
                 configMapKeyRef:
                   name: devops-playground-be-config
                   key: NODE_ENV
+          volumeMounts:
+            - name: app-storage
+              mountPath: /usr/src/app/data
+      volumes:
+        - name: app-storage
+          persistentVolumeClaim:
+            claimName: devops-playground-pvc
+          
 ---
 apiVersion: v1
 kind: ConfigMap
