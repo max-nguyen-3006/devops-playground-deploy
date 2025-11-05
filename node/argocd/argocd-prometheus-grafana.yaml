@@ -15,12 +15,12 @@ spec:
           enabled: true
           size: 10Gi
           storageClassName: "gp2"
-        adminPassword: "your-strong-password"
+        adminPassword: "Manh@3006"
         ingress:
           enabled: true
           ingressClassName: "nginx"
           hosts:
-            - "grafana.your-domain.com"
+            - "grafana.testing.com"
             
   destination:
     server: https://kubernetes.default.svc
