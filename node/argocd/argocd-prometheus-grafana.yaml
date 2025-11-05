@@ -1,26 +1,27 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: prometheus-grafana
+  name: grafana
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: https://prometheus-community.github.io/helm-charts
-    chart: kube-prometheus-stack
-    targetRevision: 65.0.0
+    repoURL: 'https://grafana.github.io/helm-charts'
+    chart: grafana
+    targetRevision: '7.3.11'
     helm:
-      skipCrds: true
       values: |
-        grafana:
-          adminPassword: admin
-          service:
-            type: NodePort
-            nodePort: 32000
-        prometheus:
-          service:
-            type: NodePort
-            nodePort: 32001
+        persistence:
+          enabled: true
+          size: 10Gi
+          storageClassName: "gp2"
+        adminPassword: "your-strong-password"
+        ingress:
+          enabled: true
+          ingressClassName: "nginx"
+          hosts:
+            - "grafana.your-domain.com"
+            
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
@@ -28,3 +29,5 @@ spec:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
