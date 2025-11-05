@@ -57,7 +57,7 @@ spec:
         name: cpu
         target:
           type: Utilization
-          averageValue: 20
+          averageValue: "20m"
   behavior:
     scaleDown:
       stabilizationWindowSeconds: 30
