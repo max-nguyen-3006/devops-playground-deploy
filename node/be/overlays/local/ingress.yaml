@@ -3,7 +3,10 @@ kind: Ingress
 metadata:
   name: webapp-ingress
   namespace: default
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
 spec:
+  ingressClassName: nginx
   rules:
   - host: webapp.local
     http:
