@@ -14,4 +14,4 @@ spec:
           service:
             name: devops-playground-be
             port:
-              number: 80
+              number: 88
