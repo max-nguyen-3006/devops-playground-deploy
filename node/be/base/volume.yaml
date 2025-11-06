@@ -14,7 +14,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: devops-playground-pvc
+  name: postgres-pvc
 spec:
   accessModes:
     - ReadWriteOnce
