@@ -10,8 +10,30 @@ spec:
     chart: kube-prometheus-stack
     targetRevision: 58.7.2
     helm:
-      valueFiles:
-        - values.yaml
+      values: |
+        crds:
+          enabled: false
+
+        prometheusOperator:
+          admissionWebhooks:
+            enabled: false
+            patch:
+              enabled: false
+
+        grafana:
+          adminPassword: admin123
+          service:
+            type: ClusterIP
+          defaultDashboardsEnabled: true
+
+        prometheus:
+          prometheusSpec:
+            retention: 10d
+            scrapeInterval: 15s
+            evaluationInterval: 15s
+
+        alertmanager:
+          enabled: false
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
@@ -21,3 +43,5 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - ServerSideApply=true
+      - Replace=true
