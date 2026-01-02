@@ -4,7 +4,7 @@ metadata:
   name: webapp-ingress
 spec:
   rules:
-    - host: webapp.test
+    - host: webapp.test.local
       http:
         paths:
           - path: /

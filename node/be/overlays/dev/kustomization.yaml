@@ -11,4 +11,5 @@ nameSuffix: -dev
 
 patches:
   - path: ingress-patch.yaml
+  - path: configmap-patch.yaml
 
