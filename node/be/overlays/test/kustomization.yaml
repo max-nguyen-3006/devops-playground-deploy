@@ -7,6 +7,11 @@ kind: Kustomization
 
 namespace: test
 
+images:
+  - name: 300698/github-action
+    newName: 300698/github-action
+    newTag: main-046329b
+
 nameSuffix: -test
 
 patches:
