@@ -6,7 +6,8 @@ spec:
   selector:
     app: devops-playground-be
   ports:
-    - port: 88
+    - name: http
+      port: 88
       targetPort: 3000
       #nodePort: 30081
   type: ClusterIP

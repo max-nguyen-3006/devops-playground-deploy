@@ -1,9 +1,10 @@
 resources:
 - ../../base
-- ingress.yaml
 
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+
+namespace: default
 images:
 - name: 300698/github-action
   newName: 300698/github-action

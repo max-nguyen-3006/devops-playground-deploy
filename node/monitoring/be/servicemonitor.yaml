@@ -1,15 +1,17 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: node-app
+  name: devops-playground-be
   namespace: monitoring
 spec:
   selector:
     matchLabels:
-      app: node-app
+      app: devops-playground-be
   namespaceSelector:
     matchNames:
-      - default   # namespace
+      - default
+      - dev
+      - test
   endpoints:
     - port: http
       path: /metrics

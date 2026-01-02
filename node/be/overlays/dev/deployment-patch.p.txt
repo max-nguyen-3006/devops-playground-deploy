@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-playground-be
+spec:
+  replicas: 2
+  template:
+    spec:
+      containers:
+        - name: devops-playground-be
+          env:
+            - $patch: replace
+            - name: NODE_ENV
+              value: development

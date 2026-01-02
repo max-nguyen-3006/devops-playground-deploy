@@ -4,3 +4,4 @@ resources:
   - volume.yaml
   - postgres-db.yaml
   - pgadmin.yaml
+  - ingress.yaml
