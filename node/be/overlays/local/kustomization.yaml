@@ -10,4 +10,4 @@ namespace: default
 images:
 - name: 300698/github-action
   newName: 300698/github-action
-  newTag: main-a72ab6b
+  newTag: main-046329b
