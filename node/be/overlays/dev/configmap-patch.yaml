@@ -4,3 +4,4 @@ metadata:
   name: devops-playground-be-config
 data:
   NODE_ENV: development
+  DB_HOST: devops-playground-postgres-service-dev

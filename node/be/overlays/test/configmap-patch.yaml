@@ -4,3 +4,4 @@ metadata:
   name: devops-playground-be-config
 data:
   NODE_ENV: test
+  DB_HOST: devops-playground-postgres-service-test
