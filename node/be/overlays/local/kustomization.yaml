@@ -11,3 +11,7 @@ images:
 - name: 300698/github-action
   newName: 300698/github-action
   newTag: main-046329b
+
+patches:
+  - path: resources-patch.yaml
+  - path: hpa-patch.yaml
