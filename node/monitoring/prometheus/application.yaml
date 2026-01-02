@@ -12,13 +12,13 @@ spec:
     helm:
       values: |
         crds:
-          enabled: false
+          enabled: true
 
         prometheusOperator:
           admissionWebhooks:
-            enabled: false
+            enabled: true
             patch:
-              enabled: false
+              enabled: true
 
         grafana:
           adminPassword: admin123

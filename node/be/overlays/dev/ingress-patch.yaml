@@ -4,4 +4,4 @@ metadata:
   name: webapp-ingress
 spec:
   rules:
-    - host: webapp.dev
+    - host: webapp.dev.local
