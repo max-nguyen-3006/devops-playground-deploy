@@ -3,6 +3,9 @@ kind: Ingress
 metadata:
   name: webapp-ingress
 spec:
+  tls:
+    - hosts:
+        - webapp.test.local
   rules:
     - host: webapp.test.local
       http:
