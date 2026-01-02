@@ -26,37 +26,9 @@ spec:
             limits:
               memory: "512Mi"
               cpu: "300m"
-          env:
-            - name: NODE_ENV
-              valueFrom:
-                configMapKeyRef:
-                  name: devops-playground-be-config
-                  key: NODE_ENV
-            - name: DB_HOST
-              valueFrom:
-                configMapKeyRef:
-                  name: devops-playground-be-config
-                  key: DB_HOST
-            - name: DB_PORT
-              valueFrom:
-                configMapKeyRef:
-                  name: devops-playground-be-config
-                  key: DB_PORT
-            - name: DB_USERNAME
-              valueFrom:
-                configMapKeyRef:
-                  name: devops-playground-be-config
-                  key: DB_USERNAME
-            - name: DB_PASSWORD
-              valueFrom:
-                configMapKeyRef:
-                  name: devops-playground-be-config
-                  key: DB_PASSWORD
-            - name: DB_DATABASE
-              valueFrom:
-                configMapKeyRef:
-                  name: devops-playground-be-config
-                  key: DB_DATABASE
+          envFrom:
+            - configMapRef:
+                name: devops-playground-be-config
           volumeMounts:
             - name: app-storage
               mountPath: /usr/src/app/data
