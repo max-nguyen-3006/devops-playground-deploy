@@ -5,3 +5,12 @@ metadata:
 spec:
   rules:
     - host: webapp.dev.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: devops-playground-be
+                port:
+                  number: 88
