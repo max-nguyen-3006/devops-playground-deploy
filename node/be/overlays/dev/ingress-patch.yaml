@@ -6,6 +6,7 @@ spec:
   tls:
     - hosts:
         - webapp.dev.local
+      secretName: webapp-tls
   rules:
     - host: webapp.dev.local
       http:
