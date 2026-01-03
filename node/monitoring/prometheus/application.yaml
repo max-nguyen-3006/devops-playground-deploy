@@ -16,9 +16,7 @@ spec:
 
         prometheusOperator:
           admissionWebhooks:
-            enabled: true
-            patch:
-              enabled: true
+            enabled: false
 
         grafana:
           adminPassword: admin123
@@ -31,6 +29,37 @@ spec:
             retention: 10d
             scrapeInterval: 15s
             evaluationInterval: 15s
+            externalLabels:
+              cluster: rancher-desktop
+
+        kubelet:
+          serviceMonitor:
+            relabelings:
+              - action: replace
+                targetLabel: cluster
+                replacement: rancher-desktop
+            cAdvisorMetricRelabelings:
+              - action: replace
+                targetLabel: cluster
+                replacement: rancher-desktop
+              - action: replace
+                sourceLabels: [pod]
+                regex: (.+)
+                targetLabel: container
+                replacement: pod
+              - action: replace
+                sourceLabels: [pod]
+                regex: (.+)
+                targetLabel: image
+                replacement: pod
+
+        kube-state-metrics:
+          prometheus:
+            monitor:
+              relabelings:
+                - action: replace
+                  targetLabel: cluster
+                  replacement: rancher-desktop
 
         alertmanager:
           enabled: false
@@ -45,3 +74,4 @@ spec:
       - CreateNamespace=true
       - ServerSideApply=true
       - Replace=true
+      - SkipHooks=true
