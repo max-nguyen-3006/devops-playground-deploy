@@ -14,6 +14,7 @@ spec:
       labels:
         app: devops-playground-be
     spec:
+      terminationGracePeriodSeconds: 10
       containers:
         - name: devops-playground-be
           image: 300698/github-action:main-dc1339c
@@ -69,13 +70,23 @@ spec:
           type: Utilization
           averageUtilization: 70
   behavior:
-    scaleDown:
-      stabilizationWindowSeconds: 900
-      selectPolicy: Min
+    scaleUp:
+      stabilizationWindowSeconds: 15
+      selectPolicy: Max
       policies:
         - type: Pods
-          value: 1
-          periodSeconds: 300
+          value: 4
+          periodSeconds: 15
         - type: Percent
-          value: 50
-          periodSeconds: 60
+          value: 100
+          periodSeconds: 15
+    scaleDown:
+      stabilizationWindowSeconds: 20
+      selectPolicy: Max
+      policies:
+        - type: Pods
+          value: 4
+          periodSeconds: 15
+        - type: Percent
+          value: 100
+          periodSeconds: 15
