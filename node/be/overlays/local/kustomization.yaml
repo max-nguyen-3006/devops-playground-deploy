@@ -10,8 +10,8 @@ namespace: default
 images:
 - name: 300698/github-action
   newName: 300698/github-action
-  newTag: main-cc244b2
+  newTag: main-30c67c8
 
 patches:
-  - path: resources-patch.yaml
-  - path: hpa-patch.yaml
+- path: resources-patch.yaml
+- path: hpa-patch.yaml
