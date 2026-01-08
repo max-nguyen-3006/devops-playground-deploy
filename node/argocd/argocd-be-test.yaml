@@ -6,6 +6,14 @@ metadata:
 spec:
   project: default
 
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      name: devops-playground-be-test
+      namespace: test
+      jsonPointers:
+        - /spec/replicas
+
   source:
     repoURL: https://github.com/max-nguyen-3006/devops-playground-deploy.git
     targetRevision: HEAD
