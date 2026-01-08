@@ -3,3 +3,11 @@ resources:
   - service.yaml
   - volume.yaml
   - ingress.yaml
+
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+images:
+  - name: 300698/github-action
+    newName: 300698/github-action
+    newTag: main-dc1339c
