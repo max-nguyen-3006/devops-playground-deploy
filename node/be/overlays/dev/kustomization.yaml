@@ -14,4 +14,5 @@ patches:
   - path: configmap-patch.yaml
   - path: resources-patch.yaml
   - path: hpa-patch.yaml
+  - path: postgres-ingress-patch.yaml
 
