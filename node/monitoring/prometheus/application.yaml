@@ -23,6 +23,12 @@ spec:
           service:
             type: ClusterIP
           defaultDashboardsEnabled: true
+          ingress:
+            enabled: true
+            hosts:
+              - grafana.local
+            path: /
+            pathType: Prefix
 
         prometheus:
           prometheusSpec:
