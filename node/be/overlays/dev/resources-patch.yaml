@@ -10,8 +10,8 @@ spec:
         - name: devops-playground-be
           resources:
             requests:
-              cpu: 100m
+              cpu: 500m
               memory: 512Mi
             limits:
-              cpu: 500m
+              cpu: 1000m
               memory: 1Gi
