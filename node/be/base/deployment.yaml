@@ -20,6 +20,12 @@ spec:
           image: 300698/github-action:main-dc1339c
           ports:
             - containerPort: 3000
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            periodSeconds: 5
+            failureThreshold: 3
           resources:
             requests:
               memory: "400Mi"
