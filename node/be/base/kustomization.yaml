@@ -8,4 +8,4 @@ kind: Kustomization
 images:
 - name: 300698/github-action
   newName: 300698/github-action
-  newTag: main-8e8dda6
+  newTag: main-13ce53d
